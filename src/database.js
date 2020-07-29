@@ -36,7 +36,7 @@ class DataBase {
                 from: from,
                 to: to,
                 timestamps: {
-                    [Op.gte]: lastTime
+                    [Op.gt]: lastTime
                 }
             },
             raw: true
@@ -63,8 +63,6 @@ class DataBase {
         messages
             .sort(function (a, b) {
                 return a.id - b.id;
-            }).sort(function (a, b) {
-                return a.timestamps - b.timestamps;
             })
         return messages;
     }

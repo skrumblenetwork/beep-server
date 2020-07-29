@@ -1,5 +1,5 @@
 const Web3 = require("web3");
-const Web3Extend = require("web3-skrumble-extend");
+const Web3Extend = require("skm-web3-extended");
 
 function initWeb3(config) {
     var provider;

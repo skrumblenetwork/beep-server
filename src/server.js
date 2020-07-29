@@ -41,6 +41,7 @@ class Server {
             socket.on("login", data => {
                 this.controller.check(socket.handshake.session.code, data.signature).then(address => {
                     if (address) {
+                        address = address.toLowerCase();
                         socket.handshake.session.address = address;
                         socket.handshake.session.save();
                         this.controller.online(address, socket);
@@ -61,7 +62,7 @@ class Server {
 
             socket.on("sendMessage", message => {
                 if (socket.handshake.session.address) {
-                    this.controller.sendMessage(socket.handshake.session.address, message.to, message.content)
+                    this.controller.sendMessage(socket.handshake.session.address, message.to.toLowerCase(), message.content)
                 } else {
                     socket.emit("need_login")
                 }
