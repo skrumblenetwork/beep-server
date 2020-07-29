@@ -11,13 +11,13 @@ var config = {
     },
     blockchain: {
         providerType: "http",
-        providerPath: "http://127.0.0.1:10101"
+        providerPath: "http://127.0.0.1:20101"
     },
     server: {
         port: 8080,
         staticPath: path.join(runtimeDir, 'static'),
         session: {
-            secret: "boot-server-key",
+            secret: "athena-server-key",
             resave: true,
             saveUninitialized: true
         }

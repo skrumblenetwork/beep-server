@@ -26,7 +26,7 @@ class Controller {
         var time = Math.round(new Date().getTime() / 1000);
         await this.database.addMessage(from, to, content, time)
         if (this.onlineUsers[to]) {
-            socket.emit("message", [{
+            this.onlineUsers[to].emit("messages", [{
                 from: from,
                 to: to,
                 content: content,
